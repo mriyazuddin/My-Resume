@@ -23,7 +23,9 @@
 /* ============================= */
 /*      GLOBAL LAYOUT            */
 
-body, html, #root {
+body,
+html,
+#root {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -33,6 +35,7 @@ body, html, #root {
   color: var(--text-color);
 }
 
+/* Container flexes sidebar and main content horizontally */
 .layout-container {
   display: flex;
   height: 100vh;
@@ -52,7 +55,7 @@ body, html, #root {
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: width 0.20s ease-in-out;
+  transition: width 0.3s ease-in-out;
 }
 
 .sidebar.collapsed {
@@ -78,7 +81,12 @@ body, html, #root {
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 0.5rem;
-  transition: width 1s ease-in-out, height 1s ease-in-out; 
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out;
+}
+
+.sidebar.expanded .profile-pic {
+  width: 80px;
+  height: 80px;
 }
 
 .sidebar.expanded .sidebar-header h2 {
@@ -116,9 +124,7 @@ body, html, #root {
   box-sizing: border-box;
   cursor: pointer;
   user-select: none;
-  transition:
-    background-color 0.22s ease,
-    color 0.18s ease;
+  transition: background-color 0.22s ease, color 0.18s ease;
 }
 
 .sidebar-nav a:hover,
@@ -132,7 +138,6 @@ body, html, #root {
   font-weight: bold;
 }
 
-/* Icon inside nav links */
 .sidebar-nav .icon {
   flex-shrink: 0;
   font-size: 1.65rem;
@@ -141,12 +146,10 @@ body, html, #root {
   transition: font-size 0.18s cubic-bezier(0.62, 0.11, 0.2, 0.96);
 }
 
-/* Slightly larger icon when expanded */
 .sidebar.expanded .sidebar-nav .icon {
   font-size: 1.98rem;
 }
 
-/* Label inside nav links */
 .sidebar-nav .label {
   margin-left: 0.7rem;
   font-size: 1.08rem;
@@ -155,51 +158,87 @@ body, html, #root {
   max-width: 120px;
   opacity: 1;
   overflow: hidden;
-  transition:
-    opacity 0.18s,
-    max-width 0.21s,
-    margin-left 0.16s;
+  transition: opacity 0.18s, max-width 0.21s, margin-left 0.16s;
 }
 
-/* Hide label smoothly when sidebar collapsed */
 .sidebar.collapsed .sidebar-nav .label {
   opacity: 0;
   max-width: 0;
   margin-left: 0;
   pointer-events: none;
   transition:
-    opacity 0.2s ease 1s,
-    max-width 0.2s ease 1s,
-    margin-left 0.2s ease 1s;
+    opacity 0.2s ease 0.25s,
+    max-width 0.2s ease 0.25s,
+    margin-left 0.2s ease 0.25s;
 }
 
 /* ============================= */
-/*      MAIN CONTENT AREA        */
+/*      TOP BAR                  */
 
-.main-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  background: var(--background);
-  color: var(--text-color);
-  overflow-y: auto;
-  height: 100vh;
-  box-sizing: border-box;
-}
-
-/* Top bar with theme toggle */
 .top-bar {
-  height: 50px;
-  background: var(--topbar-bg);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between; /* name left, other items right */
   padding: 0 1rem;
+  height: 50px;
+  background: var(--topbar-bg);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   color: var(--text-color);
+  font-size: 0.9rem;
   user-select: none;
 }
 
+.top-bar-left {
+  display: flex;
+  align-items: center;
+}
+
+.user-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  user-select: text;
+  color: var(--text-color);
+}
+
+.top-bar-content {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-color);
+}
+
+.contact-info .phone,
+.contact-info .email {
+  white-space: nowrap;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-icon {
+  color: var(--text-color);
+  font-size: 1.3rem;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover,
+.social-icon:focus {
+  color: var(--sidebar-active-bg);
+  outline: none;
+}
+
+/* Theme toggle button styling */
 .theme-toggle {
   background: none;
   border: none;
@@ -220,14 +259,30 @@ body, html, #root {
 }
 
 /* ============================= */
+/*      MAIN CONTENT AREA        */
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--background);
+  color: var(--text-color);
+  overflow-y: auto;
+  height: 100vh;
+  box-sizing: border-box;
+
+  /* Make sure content aligns top, no vertical centering */
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+/* ============================= */
 /*      PAGE CONTENT             */
 
 .page-content {
-  flex: 1;
-  padding: 1.8rem 2.2rem;
-  overflow-y: auto;
-  color: var(--text-color);
-  box-sizing: border-box;
+  padding-top: 1.8rem;
+  padding-left: 2.2rem; /* or your preferred, minimal value */
+  /* NO vertical centering props */
 }
 
 /* ============================= */
@@ -255,18 +310,4 @@ body, html, #root {
   .page-content {
     padding: 1rem 1.5rem;
   }
-}
-
-.profile-pic {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 0.5rem;
-  transition: width 1s ease, height 1s ease;
-}
-
-.sidebar.expanded .profile-pic {
-  width: 200px;    /* increase size when sidebar expands */
-  height: 200px;
 }

@@ -1,33 +1,37 @@
-import React from "react";
+// src/App.tsx
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout";
+import LoadingSpinner from "./components/LoadingSpinner";
 
-import Home from "./pages/Home";
-import Experience from "./pages/Experience";
-import Certifications from "./pages/Certifications";
-import Education from "./pages/Education";
-import Resume from "./pages/Resume";
-import Skills from "./pages/Skills";
-import Blog from "./pages/Blog";
+const Home = lazy(() => import("./pages/Home"));
+const Experience = lazy(() => import("./pages/Experience"));
+const Education = lazy(() => import("./pages/Education"));
+const Certifications = lazy(() => import("./pages/Certifications"));
+const Resume = lazy(() => import("./pages/Resume"));
+const Skills = lazy(() => import("./pages/Skills"));
+const Blog = lazy(() => import("./pages/Blog"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
-import "./styles/Layout.css";
-
-function App() {
+const App: React.FC = () => {
   return (
     <Router>
       <Layout>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/certifications" element={<Certifications />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/blog" element={<Blog />} />
-        </Routes>
+        <Suspense fallback={<LoadingSpinner />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/experience" element={<Experience />} />
+            <Route path="/education" element={<Education />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/certifications" element={<Certifications />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
       </Layout>
     </Router>
   );
-}
+};
 
 export default App;
