@@ -37,7 +37,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <div className="sidebar-header">
           <img
             src="/src/assets/images/profile.jpg"
-            alt="Your Name"
+            alt="Mohammed Riyazuddin"
             className="profile-pic"
             draggable={false}
           />
@@ -129,18 +129,18 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <header className="top-bar">
           {/* Left side: the name */}
           <div className="top-bar-left">
-            <h1 className="user-name">Your Name</h1>
+            <h1 className="user-name">Mohammed Riyazuddin</h1>
           </div>
 
           {/* Right side: contact info, socials, toggle */}
           <div className="top-bar-content">
             <div className="contact-info">
-              <span className="phone">📞 +1-234-567-8901</span>
-              <span className="email">✉️ your.email@example.com</span>
+              <span className="phone">📞 +91-863-922-7538</span>
+              <span className="email">✉️ contact@riyaz.blog</span>
             </div>
             <div className="social-links">
               <a
-                href="https://linkedin.com/in/yourprofile"
+                href="https://linkedin.com/in/mriyazuddin1"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -149,7 +149,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <FaLinkedin />
               </a>
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/mriyazuddin"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
@@ -158,10 +158,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <FaGithub />
               </a>
               <a
-                href="https://yourwordpressblog.com"
+                href="https://profiles.wordpress.org/mriyazuddin1/"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="WordPress"
+                aria-label="WordPress.org"
                 className="social-icon"
               >
                 <FaWordpress />
