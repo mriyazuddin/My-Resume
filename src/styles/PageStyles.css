@@ -76,7 +76,7 @@
 footer {
   margin-top: 3rem;
   text-align: center;
-  background: var(--footer-bg);
+  /* background: var(--footer-bg); */
 }
 
 /* Link styles */

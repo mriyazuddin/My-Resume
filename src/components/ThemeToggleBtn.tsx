@@ -1,8 +1,11 @@
 import React from "react";
-import { useTheme } from "../context/ThemeContext"; // adjust path as needed
+import { useTheme } from "../context/ThemeContext";
+import darkModeImage from "../assets/images/DarkMode.png";
+import lightModeImage from "../assets/images/LightMode.png";
 
 const ThemeToggleBtn: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
+  const imgStyle = { width: "50px", height: "30px" };
 
   return (
     <button
@@ -10,7 +13,11 @@ const ThemeToggleBtn: React.FC = () => {
       className="theme-toggle"
       aria-label="Toggle theme"
     >
-      {theme === "light" ? "🌙" : "☀️"}
+      <img
+        src={theme === "light" ? darkModeImage : lightModeImage}
+        alt="Toggle theme"
+        style={imgStyle}
+      />
     </button>
   );
 };
