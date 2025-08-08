@@ -1,20 +1,61 @@
-/* src/styles/GlobalStyles.css */
-
 /* Theme variables (light/dark) */
 :root {
   --background: #f5f7fa;
-  --text-color: #222;
-  --header-color: #222;
+  --text-color: #000080;
+  --header-color: #000080;
   --sidebar-bg: #2e3a59;
   --sidebar-hover-bg: #3e4b7b;
   --sidebar-text: #fff;
   --sidebar-active-bg: #556cd6;
   --topbar-bg: #dfdfdf;
   --accent-color: #007bff;
-  --accent-hover: #01FFFF;
-  /* 0056b3; */
+  --button-color: #007bff;
+  --accent-hover: #0056b3;
+  --accent-hover-text: #fff0f0;
   --card-bg: #fff;
   --footer-bg: #f5f7fa;
+  --topbar-bottom-border: #007bff;
+  --button-text-color: #fff;
+}
+
+[data-theme="dark"] {
+  --background: #121212;
+  --text-color: #e0e0e0;
+  --header-color: #f0f0f0;
+  --sidebar-bg: #1a1a2e;
+  --sidebar-hover-bg: #162447;
+  --sidebar-text: #f0f0f0;
+  --sidebar-active-bg: #4250a1;
+  --topbar-bg: #1f1f1f;
+  --accent-color: #063a7a;
+  /* #66aaff; */
+  --accent-hover: #0b67c3;
+  --accent-hover-text: #fFf0f0;
+  /* #007bff; */
+  --card-bg: #1e1e1e;
+  --footer-bg: #1e1e1e;
+  --topbar-bottom-border: navy;
+  --button-text-color: #E0E0E0;
+  /* #3399ff; */
+}
+
+/* Disabled this to use global variables in PageStyles.css addressing the button accent color when hovered.
+:root {
+  --background: #f5f7fa;
+  --text-color: #000080;
+  --header-color: #000080;
+  --sidebar-bg: #2e3a59;
+  --sidebar-hover-bg: #3e4b7b;
+  --sidebar-text: #fff;
+  --sidebar-active-bg: #556cd6;
+  --topbar-bg: #dfdfdf;
+  --accent-color: #007bff;
+  --button-color: #007bff;
+  --accent-hover: #0056b3;
+  --card-bg: #fff;
+  --footer-bg: #f5f7fa;
+  --topbar-bottom-border: navy;
+  --button-text-color: #fff;
 }
 
 [data-theme="dark"] {
@@ -30,7 +71,9 @@
   --accent-hover: #3399ff;
   --card-bg: #1e1e1e;
   --footer-bg: #1e1e1e;
-}
+  --topbar-bottom-border: navy;
+  --button-text-color: #3399ff;
+} */
 
 /* Base resets and fonts */
 body, html, #root {

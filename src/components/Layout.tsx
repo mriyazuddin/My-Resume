@@ -11,7 +11,7 @@ type LayoutProps = {
 
 const sidebarVariants = {
   collapsed: { width: 60, transition: { duration: 0.3, ease: "easeInOut" } },
-  expanded: { width: 210, transition: { duration: 0.3, ease: "easeInOut" } },
+  expanded: { width: 220, transition: { duration: 0.3, ease: "easeInOut" } },
 };
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
