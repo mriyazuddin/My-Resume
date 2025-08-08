@@ -10,7 +10,7 @@ const Education = lazy(() => import("./pages/Education"));
 const Certifications = lazy(() => import("./pages/Certifications"));
 const Resume = lazy(() => import("./pages/Resume"));
 const Skills = lazy(() => import("./pages/Skills"));
-const Blog = lazy(() => import("./pages/Blog"));
+// const Blog = lazy(() => import("./pages/Blog"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App: React.FC = () => {
@@ -23,7 +23,7 @@ const App: React.FC = () => {
             <Route path="/experience" element={<Experience />} />
             <Route path="/education" element={<Education />} />
             <Route path="/skills" element={<Skills />} />
-            <Route path="/blog" element={<Blog />} />
+            {/*<Route path="/blog" element={<Blog />} />*/}
             <Route path="/certifications" element={<Certifications />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="*" element={<NotFound />} />

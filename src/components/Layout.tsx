@@ -3,6 +3,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaLinkedin, FaGithub, FaWordpress } from "react-icons/fa";
+import ThemeToggleBtn from "../components/ThemeToggleBtn"; // Import your toggle button
 
 type LayoutProps = {
   children?: ReactNode;
@@ -15,7 +16,7 @@ const sidebarVariants = {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme(); // No need to destructure toggleTheme here anymore
   const location = useLocation();
 
   // Scroll to top on route changes
@@ -111,16 +112,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <span className="label">Skills</span>
           </NavLink>
 
-          <NavLink
-            to="/blog"
-            title="Blog"
-            className={({ isActive }) => (isActive ? "active" : "")}
-          >
-            <span className="icon" aria-hidden="true">
-              📝
-            </span>
+          {/* Blog NavLink is commented out */}
+          {/*
+          <NavLink to="/blog" title="Blog" className={({ isActive }) => (isActive ? "active" : "")}>
+            <span className="icon" aria-hidden="true">📝</span>
             <span className="label">Blog</span>
           </NavLink>
+          */}
         </nav>
       </motion.aside>
 
@@ -167,14 +165,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 <FaWordpress />
               </a>
             </div>
-            <button
-              className="theme-toggle"
-              aria-label="Toggle theme"
-              onClick={toggleTheme}
-              type="button"
-            >
-              {theme === "light" ? "🌞" : "🌙"}
-            </button>
+            {/* Replace the inline toggle button with imported toggle component */}
+            <ThemeToggleBtn />
           </div>
         </header>
 

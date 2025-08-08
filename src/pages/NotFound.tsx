@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/PageStyles.css";
 
 const Home: React.FC = () => {
   return (

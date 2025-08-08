@@ -1,0 +1,58 @@
+/* src/styles/GlobalStyles.css */
+
+/* Theme variables (light/dark) */
+:root {
+  --background: #f5f7fa;
+  --text-color: #222;
+  --header-color: #222;
+  --sidebar-bg: #2e3a59;
+  --sidebar-hover-bg: #3e4b7b;
+  --sidebar-text: #fff;
+  --sidebar-active-bg: #556cd6;
+  --topbar-bg: #dfdfdf;
+  --accent-color: #007bff;
+  --accent-hover: #01FFFF;
+  /* 0056b3; */
+  --card-bg: #fff;
+  --footer-bg: #f5f7fa;
+}
+
+[data-theme="dark"] {
+  --background: #121212;
+  --text-color: #e0e0e0;
+  --header-color: #f0f0f0;
+  --sidebar-bg: #1a1a2e;
+  --sidebar-hover-bg: #162447;
+  --sidebar-text: #f0f0f0;
+  --sidebar-active-bg: #4250a1;
+  --topbar-bg: #1f1f1f;
+  --accent-color: #66aaff;
+  --accent-hover: #3399ff;
+  --card-bg: #1e1e1e;
+  --footer-bg: #1e1e1e;
+}
+
+/* Base resets and fonts */
+body, html, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: monospace, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background: var(--background);
+  color: var(--text-color);
+  min-height: 100vh;
+  /* Add antialiased rendering for smooth text */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default outline only for mouse users */
+body:not(.user-is-tabbing) a:focus, body:not(.user-is-tabbing) button:focus {
+  outline: none;
+}
+
+/* Remove list default styles */
+ul, ol {
+  margin: 0;
+  padding-left: 1.2em;
+}

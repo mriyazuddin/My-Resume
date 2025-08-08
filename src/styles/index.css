@@ -1,0 +1,24 @@
+/* src/index.css */
+
+:root {
+  font-family: inherit; /* will inherit from GlobalStyles.css */
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+a {
+  font-weight: 500;
+  color: var(--accent-color);
+  text-decoration: inherit;
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+/* Remove Vite's original color overrides here! */

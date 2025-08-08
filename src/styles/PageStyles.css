@@ -1,41 +1,41 @@
-/* src/styles/PageStyles.css */
+/* src/styles/PageStyles.css (or GlobalStyles.css if you want to merge) */
 
-body, html, #root  .page-container {
-  font-family: monospace, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-}
+/* If using both GlobalStyles.css and PageStyles.css, DO NOT hardcode colors—use variables! */
+
+/* Universal container for content pages */
 .page-container {
   padding: 2rem;
   max-width: 900px;
   margin: 0 auto;
-  color: #ccc;
-  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  background: transparent;
 }
 
+/* Header styles for each page */
 .page-header {
   margin-bottom: 2rem;
   text-align: center;
-  color: #abc;
+  color: var(--header-color);
 }
-
 .page-header h1 {
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: var(--header-color);
 }
-
 .page-header p {
   font-size: 1.1rem;
   margin: 0;
 }
 
+/* Section spacing utility */
 .section-spacing {
   margin-bottom: 2.5rem;
 }
 
+/* Button/CTA styles */
 .cta-button {
   padding: 0.75rem 1.5rem;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--accent-color);
+  color: #fff;
   border-radius: 5px;
   text-decoration: none;
   font-weight: 600;
@@ -43,22 +43,20 @@ body, html, #root  .page-container {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
 .cta-button:hover,
 .cta-button:focus {
-  background-color: #0056b3;
+  background-color: var(--accent-hover);
   outline: none;
 }
-
 .cta-button + .cta-button {
   margin-left: 1rem;
 }
 
+/* Lists */
 .ul-disc {
   list-style-type: disc;
   padding-left: 1.5rem;
 }
-
 .ul-none {
   list-style-type: none;
   padding-left: 0;
@@ -68,17 +66,20 @@ body, html, #root  .page-container {
   margin-bottom: 1.5rem;
 }
 
+/* Footer */
 footer {
   margin-top: 3rem;
   text-align: center;
+  background: var(--footer-bg);
 }
 
+/* Link styles */
 a {
-  color: #007bff;
+  color: var(--accent-color);
 }
-
 a:hover,
 a:focus {
+  color: var(--accent-hover);
   text-decoration: underline;
   outline: none;
 }

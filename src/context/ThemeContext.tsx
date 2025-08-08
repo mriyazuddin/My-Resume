@@ -18,9 +18,10 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  // Initialize theme based on user's system preference or default to 'light'
   const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== "undefined" && window.matchMedia) {
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("theme");
+      if (saved === "light" || saved === "dark") return saved;
       return window.matchMedia("(prefers-color-scheme: dark)").matches
         ? "dark"
         : "light";
@@ -28,11 +29,14 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
     return "light";
   });
 
-  // Apply theme class to the document root
   useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.remove(theme === "light" ? "dark" : "light");
-    root.classList.add(theme);
+    if (theme === "dark") {
+      root.setAttribute("data-theme", "dark");
+    } else {
+      root.removeAttribute("data-theme");
+    }
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
@@ -48,8 +52,6 @@ export const ThemeProvider: React.FC<{ children: ReactNode }> = ({
 
 export const useTheme = (): ThemeContextType => {
   const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error("useTheme must be used within ThemeProvider");
-  }
+  if (!context) throw new Error("useTheme must be used within ThemeProvider");
   return context;
 };
